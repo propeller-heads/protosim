@@ -4,13 +4,14 @@ use ethers::types::U256;
 use tycho_core::dto::ProtocolStateDelta;
 
 use crate::{
-    models::ERC20Token,
+    evm::protocol::{
+        events::{check_log_idx, EVMLogMeta, LogIndex},
+        state::{ProtocolEvent, ProtocolSim},
+    },
+    models::{BytesConvertible, ERC20Token},
     protocol::{
         errors::{TradeSimulationError, TradeSimulationErrorKind, TransitionError},
-        events::{check_log_idx, EVMLogMeta, LogIndex},
         models::GetAmountOutResult,
-        state::{ProtocolEvent, ProtocolSim},
-        BytesConvertible,
     },
     safe_math::{safe_add_u256, safe_div_u256, safe_mul_u256},
 };

@@ -14,13 +14,14 @@ use revm::{
 use tycho_core::dto::ProtocolStateDelta;
 
 use crate::{
-    evm::simulation::{SimulationEngine, SimulationParameters},
-    protocol::{
-        errors::TransitionError,
-        events::{EVMLogMeta, LogIndex},
-        models::GetAmountOutResult,
-        state::{ProtocolEvent, ProtocolSim},
+    evm::{
+        protocol::{
+            events::{EVMLogMeta, LogIndex},
+            state::{ProtocolEvent, ProtocolSim},
+        },
+        simulation::{SimulationEngine, SimulationParameters},
     },
+    protocol::{errors::TransitionError, models::GetAmountOutResult},
     u256_num::u256_to_f64,
 };
 

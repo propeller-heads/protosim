@@ -140,7 +140,7 @@ pub fn compute_swap_step(
 mod tests {
     use std::ops::Neg;
 
-    use crate::protocol::uniswap_v3::enums::FeeAmount;
+    use crate::evm::protocol::uniswap_v3::enums::FeeAmount;
 
     use super::*;
 

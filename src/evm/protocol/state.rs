@@ -18,8 +18,8 @@
 //! # Examples
 //! ```
 //! use ethers::types::U256;
-//! use protosim::protocol::state::{ProtocolSim};
-//! use protosim::protocol::uniswap_v2::state::UniswapV2State;
+//! use protosim::evm::protocol::state::{ProtocolSim};
+//! use protosim::evm::protocol::uniswap_v2::state::UniswapV2State;
 //! use protosim::models::ERC20Token;
 //!
 //! // Initialize the UniswapV2 state with token reserves
@@ -47,14 +47,13 @@ use ethers::types::U256;
 use tycho_core::dto::ProtocolStateDelta;
 
 use crate::{
+    evm::protocol::events::{EVMLogMeta, LogIndex},
     models::ERC20Token,
     protocol::{
         errors::{TradeSimulationError, TransitionError},
-        events::{EVMLogMeta, LogIndex},
         models::GetAmountOutResult,
     },
 };
-
 /// ProtocolSim trait
 /// This trait defines the methods that a protocol state must implement in order to be used
 /// in the trade simulation.
