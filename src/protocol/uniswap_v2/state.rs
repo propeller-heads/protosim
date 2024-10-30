@@ -2,6 +2,7 @@ use std::any::Any;
 
 use ethers::types::U256;
 use tycho_core::dto::ProtocolStateDelta;
+use tycho_ethereum::BytesCodec;
 
 use crate::{
     models::ERC20Token,
@@ -10,7 +11,6 @@ use crate::{
         events::{check_log_idx, EVMLogMeta, LogIndex},
         models::GetAmountOutResult,
         state::{ProtocolEvent, ProtocolSim},
-        BytesConvertible,
     },
     safe_math::{safe_add_u256, safe_div_u256, safe_mul_u256},
 };
@@ -334,8 +334,8 @@ mod tests {
     fn test_delta_transition() {
         let mut state = UniswapV2State::new(u256("1000"), u256("1000"));
         let attributes: HashMap<String, Bytes> = vec![
-            ("reserve0".to_string(), Bytes::from(1500_u64.to_le_bytes().to_vec())),
-            ("reserve1".to_string(), Bytes::from(2000_u64.to_le_bytes().to_vec())),
+            ("reserve0".to_string(), Bytes::from(1500_u64.to_be_bytes().to_vec())),
+            ("reserve1".to_string(), Bytes::from(2000_u64.to_be_bytes().to_vec())),
         ]
         .into_iter()
         .collect();
